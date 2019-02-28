@@ -6,22 +6,9 @@ def Encryption(n, plaintext):
     plaintext: type str, text to be encoded
     """
     
-    import string
-    alphabet = list(string.ascii_lowercase)
-    word = ''
-    for c in plaintext:
-        position = alphabet.index(c)
-        if position + n >= 26:
-            ogposition = position + n -26
-        else:
-            ogposition = position + n
-    character = alphabet[ogposition]
-    word += character
-  
-    result = word 
+    result = ''
+
     return result
-
-
 
 
 def Decryption(n, ciphertext):
@@ -31,8 +18,17 @@ def Decryption(n, ciphertext):
     n: type integer; represents the shift value
     ciphertext: type str, text to be decoded
     """
-    
-    result = ''
+    import string
+    alphabet = list(string.ascii_lowercase)
+    word=" "
+    for c in ciphertext:
+        position=alphabet.index(c)
+        print position # find position of character in the alphabet list
+        ogposition=position - n #find the original character's position in the alphabet list
+        character= alphabet[ogposition]
+        word+= character
+        
+    result = word
 
     return result
 
