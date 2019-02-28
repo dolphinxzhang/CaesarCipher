@@ -6,9 +6,21 @@ def Encryption(n, plaintext):
     plaintext: type str, text to be encoded
     """
     
-    result = ''
-
+    import string
+    alphabet = list(string.ascii_lowercase)
+    word = ''
+    for c in plaintext:
+        position = alphabet.index(c)
+    if position + n >= 26:
+        ogposition = position + n -26
+    else:
+        ogposition = position + n
+    character = alphabet[ogposition]
+    word += character
+  
+    result = word 
     return result
+
 
 
 def Decryption(n, ciphertext):
